@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
+
+int main(int argc, char **argv)
+{
+	int sum_name;
+	int xor_name;
+	int serial;
+	int i;
+
+	if(2 > argc)
+	{
+		printf("usage: %s <name>\n", argv[0]);
+		return 0;
+	}
+
+	sum_name = 0;
+
+	for(i = 0; argv[1][i] != '\0'; i++)
+	{
+		sum_name += toupper(argv[1][i]);
+	}
+
+	xor_name = sum_name ^ 0x5678;
+
+	serial = xor_name ^ 0x1234;
+
+	printf("sum_name = %X; xor_name = %X; serial = %d\n",
+			sum_name, xor_name, serial);
+
+	return 0;
+}
+
