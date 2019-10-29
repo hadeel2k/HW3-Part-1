@@ -1,0 +1,15 @@
+First I noticed that the name string was being converted to an integer.
+This integer is equal to the sum of the decimal values of each character's equivalent upper case character. 
+This sum was then 'xor-ed' with the value 0x5678. 
+This value is the value to which the serial number must match after being 'xor-ed' with 0x1234. 
+Applying the rules, the xor-ed name xor 0x1234 produced the required serial number once it was converted to decimal.
+Name : Hadeel 
+serial:17903
+Name : shifu
+serial:17715
+Name : yujie
+serial:17866
+Name : yiming 
+serial:17793
+
+
