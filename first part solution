@@ -1,0 +1,57 @@
+First i run the ollybdg then Crakme windows cameup and I entered the Name :HHH and the Serial :123 then i got No luck massage. 
+After that i step on to the program.
+until  the jumb crackme command 00401243  74 07          JE SHORT CRACKME[.0040124C
+patch it change the assemby by re write the command. 
+JNE SHORT CRACKME[.0040124C to jumb when not equal.
+Then run the program again and entered the ueser name and the serial 
+got the good work massage 
+
+
+00401207   .^EB DD          JMP SHORT CRACKME[.004011E6
+00401209   > 6A 00          PUSH 0                                   ; /lParam = NULL
+0040120B   . 68 53124000    PUSH CRACKME[.00401253                   ; |DlgProc = CRACKME[.00401253
+00401210   . FF75 08        PUSH DWORD PTR SS:[EBP+8]                ; |hOwner
+00401213   . 68 15214000    PUSH CRACKME[.00402115                   ; |pTemplate = "DLG_REGIS"
+00401218   . FF35 CA204000  PUSH DWORD PTR DS:[4020CA]               ; |hInst = 00400000
+0040121E   . E8 7D020000    CALL <JMP.&USER32.DialogBoxParamA>       ; \DialogBoxParamA
+00401223   . 83F8 00        CMP EAX,0
+00401226   .^74 BE          JE SHORT CRACKME[.004011E6
+00401228   . 68 8E214000    PUSH CRACKME[.0040218E                   ;  ASCII "HHH"
+0040122D   . E8 4C010000    CALL CRACKME[.0040137E
+00401232   . 50             PUSH EAX
+00401233   . 68 7E214000    PUSH CRACKME[.0040217E                   ;  ASCII "123"
+00401238   . E8 9B010000    CALL CRACKME[.004013D8
+0040123D   . 83C4 04        ADD ESP,4
+00401240   . 58             POP EAX
+00401241   . 3BC3           CMP EAX,EBX
+00401243     74 07          JE SHORT CRACKME[.0040124C     // JE  jumb when its equal , rewrite the assembly to be  JNE SHORT CRACKME[.0040124C to jumb when not equal
+00401245   . E8 18010000    CALL CRACKME[.00401362
+0040124A   .^EB 9A          JMP SHORT CRACKME[.004011E6
+0040124C   > E8 FC000000    CALL CRACKME[.0040134D
+00401251   .^EB 93          JMP SHORT CRACKME[.004011E6
+00401253  /. C8 000000      ENTER 0,0
+00401257  |. 53             PUSH EBX
+00401258  |. 56             PUSH ESI
+00401259  |. 57             PUSH EDI
+0040125A  |. 817D 0C 100100>CMP DWORD PTR SS:[EBP+C],110
+00401261     74 34          JE SHORT CRACKME[.00401297
+00401263  |. 817D 0C 110100>CMP DWORD PTR SS:[EBP+C],111
+0040126A  |. 74 35          JE SHORT CRACKME[.004012A1
+0040126C  |. 837D 0C 10     CMP DWORD PTR SS:[EBP+C],10
+00401270  |. 0F84 81000000  JE CRACKME[.004012F7
+00401276  |. 817D 0C 010200>CMP DWORD PTR SS:[EBP+C],201
+0040127D  |. 74 0C          JE SHORT CRACKME[.0040128B
+0040127F  |. B8 00000000    MOV EAX,0
+00401284  |> 5F             POP EDI
+00401285  |. 5E             POP ESI
+00401286  |. 5B             POP EBX
+00401287  |. C9             LEAVE
+00401288  |. C2 1000        RETN 10
+0040128B  |> 6A 01          PUSH 1                                   ; /Erase = TRUE
+0040128D  |. 6A 00          PUSH 0                                   ; |pRect = NULL
+0040128F  |. FF75 08        PUSH DWORD PTR SS:[EBP+8]                ; |hWnd
+00401292  |. E8 B5010000    CALL <JMP.&USER32.InvalidateRect>        ; \InvalidateRect
+00401297  |> FF75 08        PUSH DWORD PTR SS:[EBP+8]                ; /hWnd
+0040129A  |. E8 95010000    CALL <JMP.&USER32.SetFocus>              ; \SetFocus
+0040129F  |.^EB E3          JMP SHORT CRACKME[.00401284
+
