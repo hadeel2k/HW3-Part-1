@@ -1,9 +1,9 @@
 First i run the ollybdg then Crakme windows cameup and I entered the Name :HHH and the Serial :123 then i got No luck massage. 
-After that i step on to the program.
+After that i step in to the program.
 until  the jumb crackme command 00401243  74 07          JE SHORT CRACKME[.0040124C
-patch it change the assemby by re write the command. 
+patch it, change the assemby by re write the command. 
 JNE SHORT CRACKME[.0040124C to jumb when not equal.
-Then run the program again and entered the ueser name and the serial 
+Then  i run the program again and entered the different ueser name and serial number
 got the good work massage 
 
 
